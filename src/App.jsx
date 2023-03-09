@@ -3,24 +3,19 @@ import { CreateDogForm } from "./Components/CreateDogForm";
 import { useState, useEffect } from "react";
 import { Dogs } from "./Components/Dogs";
 import { Section } from "./Components/Section";
+import { fetchData } from "./fetch";
 import "./fonts/RubikBubbles-Regular.ttf";
 
 function App() {
-  const [favorited, setFavorited] = useState(0);
   const [displayForm, setDisplayForm] = useState("");
-  const [notfavorited, setNotFavorited] = useState(0);
+  const [displayFavs, setDisplayFavs] = useState("");
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
-    const favsLength = dogs.filter((dog) => dog.isFavorite === true).length;
-    fetch(`http://localhost:3000/dogs`)
-      .then((res) => res.json())
-      .then((result) => {
-        setDogs(result);
-        setFavorited(favsLength);
-        setNotFavorited(dogs.length - favsLength);
-      });
-  }, [dogs]);
+    fetchData(`http://localhost:3000/dogs`)
+      .then((res) => setDogs(res))
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className="App">
@@ -29,12 +24,19 @@ function App() {
       </header>
       <Section
         label={"Dogs: "}
-        favorited={favorited}
-        notfavorited={notfavorited}
+        setDisplayFavs={setDisplayFavs}
+        favLength={dogs.filter((dog) => dog.isFavorite === true).length}
+        UnFavLength={dogs.filter((dog) => dog.isFavorite !== true).length}
         setDisplayForm={setDisplayForm}
+        setDogs={setDogs}
       >
         {displayForm === "" ? (
-          <Dogs label={"All Dogs"} dogs={dogs} />
+          <Dogs
+            label={"All Dogs"}
+            dogs={dogs}
+            setDogs={setDogs}
+            displayFavs={displayFavs}
+          />
         ) : (
           <CreateDogForm />
         )}

@@ -4,6 +4,8 @@ import { UnfavoriteButton } from "./UnfavoriteButton";
 
 export const DogCard = ({
   dog: { name, image, description, id, isFavorite },
+  dogs,
+  setDogs,
 }) => {
   const favorite = (swap) => {
     fetch(`http://localhost:3000/dogs/${id}`, {
@@ -14,13 +16,21 @@ export const DogCard = ({
       body: JSON.stringify({ isFavorite: swap }),
     })
       .then((res) => res.json())
-      .then((result) => console.log("record updated", result));
+      .then((updatedDog) => {
+        const updatedDogs = dogs.map((dog) =>
+          dog.id === updatedDog.id ? updatedDog : dog
+        );
+        setDogs(updatedDogs);
+      });
   };
 
   const deleteDog = () => {
     fetch(`http://localhost:3000/dogs/${id}`, { method: "DELETE" })
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then(() => {
+        const remainingDogs = dogs.filter((dog) => dog.id !== id);
+        setDogs(remainingDogs);
+      })
       .catch((error) => console.log("error", error));
   };
 

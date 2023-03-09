@@ -1,12 +1,25 @@
 import { DogCard } from "./DogCard";
-import { useEffect, useState } from "react";
 
-export const Dogs = ({ dogs }) => {
+export const Dogs = ({ dogs, setDogs, displayFavs }) => {
   return (
     <>
-      {dogs.map((dog) => (
-        <DogCard dog={dog} key={dog.id} />
-      ))}
+      {dogs.map((dog) => {
+        if (dog.isFavorite && displayFavs === "favs") {
+          return (
+            <DogCard dog={dog} key={dog.id} setDogs={setDogs} dogs={dogs} />
+          );
+        }
+        if (displayFavs === "notFavs" && dog.isFavorite === false) {
+          return (
+            <DogCard dog={dog} key={dog.id} setDogs={setDogs} dogs={dogs} />
+          );
+        }
+        if (displayFavs === "") {
+          return (
+            <DogCard dog={dog} key={dog.id} setDogs={setDogs} dogs={dogs} />
+          );
+        }
+      })}
     </>
   );
 };

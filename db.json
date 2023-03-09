@@ -1,38 +1,17 @@
 {
   "dogs": [
     {
-      "name": "timeless",
-      "image": "/src/assets/dalmation.png",
-      "description": "Granite North connect Baht Metal North holistic deposit",
-      "isFavorite": false,
-      "id": 2
-    },
-    {
-      "name": "Kiara",
-      "image": "/src/assets/blue-heeler.png",
-      "description": "quantify Assimilated yawning plain bypassing",
-      "isFavorite": true,
-      "id": 5
-    },
-    {
-      "name": "Hunter",
-      "image": "/src/assets/boxer.png",
-      "description": "Cheese Handcrafted owlishly program TCP Sanford shadowy",
-      "isFavorite": false,
-      "id": 6
-    },
-    {
       "name": "Cristopher",
       "image": "/src/assets/dalmation.png",
       "description": "Tuna primary Oriental calculate channels",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 7
     },
     {
       "name": "Delores",
       "image": "/src/assets/chihuahua.avif",
       "description": "extend Soul Lake optimize Lead",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 8
     },
     {
@@ -46,14 +25,14 @@
       "name": "Leilani",
       "image": "/src/assets/blue-heeler.png",
       "description": "fussy meh overjoyed Sports Mississippi",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 10
     },
     {
       "name": "Roscoe",
       "image": "/src/assets/corgi.png",
       "description": "Legacy Indiana Borders female Copernicium magenta program Human",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 11
     },
     {
@@ -67,7 +46,7 @@
       "name": "Edna",
       "image": "/src/assets/corgi.png",
       "description": "olive Shoes Lempira Bespoke Northwest that Operations Coupe",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 13
     },
     {
@@ -111,6 +90,20 @@
       "description": "payment Plastic Electric intranet Bicycle foreground Agent",
       "isFavorite": false,
       "id": 19
+    },
+    {
+      "name": "Besty",
+      "image": "/src/assets/blue-heeler.png",
+      "description": "wqefsd",
+      "isFavorite": false,
+      "id": 20
+    },
+    {
+      "name": "beasty",
+      "image": "/src/assets/blue-heeler.png",
+      "description": "wfesgfd",
+      "isFavorite": false,
+      "id": 21
     }
   ]
 }
